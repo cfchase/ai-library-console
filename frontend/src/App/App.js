@@ -31,7 +31,7 @@ export const App = withRouter(() => {
 });
 
 const mapStateToProps = (state) => {
-  return {};
+  return state.appReducer;
 };
 
 const mapDispatchToProps = (dispatch) => ({});

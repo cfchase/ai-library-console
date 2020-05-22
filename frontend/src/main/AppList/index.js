@@ -1,4 +1,5 @@
 import { AppList } from './AppList';
+import { reducer } from './reducer';
 
-export { AppList } from './AppList';
+export { AppList, reducer }
 export default AppList;
