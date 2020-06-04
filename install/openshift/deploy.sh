@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-printf "\n\n######## deploying frontend to OpensShift ########\n"
+printf "\n\n######## deploying to OpensShift ########\n"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -11,7 +11,7 @@ PROJECT=${PROJECT:-ai-library}
 
 
 oc project ${PROJECT} 2> /dev/null || oc new-project ${PROJECT}
-echo "Deploying frontend to project ${PROJECT}"
+echo "Deploying to project ${PROJECT}"
 
 oc process -f "${DIR}/openshift.yml" ${ARGS} | oc create -f -
 

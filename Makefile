@@ -17,25 +17,19 @@ dev: dev-frontend
 
 ##################################
 
-# BUILD - build images locally using s2i
-
-.PHONY: build-frontend
-build-frontend:
-	./frontend/install/build.sh
+# BUILD - build image locally using s2i
 
 .PHONY: build
-build: build-frontend
+build:
+	./install/build.sh
 
 ##################################
 
-# PUSH - push images to repository
-
-.PHONY: push-frontend
-push-frontend:
-	./frontend/install/push.sh
+# PUSH - push image to repository
 
 .PHONY: push
-push: push-frontend
+push:
+	./install/push.sh
 
 ##################################
 
@@ -53,22 +47,16 @@ endif
 
 # OC-DEPLOY - deploy
 
-.PHONY: openshift-deploy-frontend
-openshift-deploy-frontend: openshift-login
-	./frontend/install/openshift/deploy.sh
-
 .PHONY: openshift-deploy
-openshift-deploy: openshift-login openshift-deploy-frontend
+openshift-deploy: openshift-login
+	./install/openshift/deploy.sh
 
 ##################################
 
 # OC-UNDEPLOY - undeploy
 
-.PHONY: openshift-undeploy-frontend
-openshift-undeploy-frontend: openshift-login
-	./frontend/install/openshift/undeploy.sh
-
 .PHONY: openshift-undeploy
-openshift-undeploy: openshift-login openshift-undeploy-frontend
+openshift-undeploy: openshift-login
+	./install/openshift/undeploy.sh
 
 ##################################
