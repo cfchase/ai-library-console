@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
-import { Page } from '@patternfly/react-core';
+import { Page } from "@patternfly/react-core";
 
-import {
-  Header,
-  NavSidebar,
-  Routes,
-} from './components';
+import { Header, NavSidebar, Routes } from "./components";
 
-import './App.scss';
+import "./App.scss";
 
 export const App = withRouter(() => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -21,11 +17,12 @@ export const App = withRouter(() => {
 
   return (
     <Page
-      header={<Header isNavOpen={isNavOpen} onNavToggle={onNavToggle}/>}
-      sidebar={<NavSidebar isNavOpen={isNavOpen}/>}
+      header={<Header isNavOpen={isNavOpen} onNavToggle={onNavToggle} />}
+      sidebar={<NavSidebar isNavOpen={isNavOpen} />}
       isManagedSidebar
-      className='app'>
-      <Routes/>
+      className="app"
+    >
+      <Routes />
     </Page>
   );
 });

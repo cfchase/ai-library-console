@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import {
-  useParams,
-} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 import {
   Nav,
@@ -14,18 +12,14 @@ import {
   TextContent,
   Text,
   Divider,
-} from '@patternfly/react-core';
+} from "@patternfly/react-core";
 
-import {
-  Development,
-  Training,
-  Serving
-} from './components';
+import { Development, Training, Serving } from "./components";
 
-import './AppDetail.scss';
+import "./AppDetail.scss";
 
 export const AppDetail = () => {
-  const [activeSubNav, setActiveSubNav] = useState('development');
+  const [activeSubNav, setActiveSubNav] = useState("development");
 
   const onNavSelect = (result) => {
     setActiveSubNav(result.itemId);
@@ -33,49 +27,44 @@ export const AppDetail = () => {
 
   let subSection = ((x) => {
     switch (activeSubNav) {
-      case 'training':
-        return <Training/>;
-      case 'serving':
-        return <Serving/>;
+      case "training":
+        return <Training />;
+      case "serving":
+        return <Serving />;
       default:
-        return <Development/>;
+        return <Development />;
     }
   })(activeSubNav);
-
 
   return (
     <>
       <PageSection variant={PageSectionVariants.light}>
         <TextContent>
-          <Text component='h1'>{useParams().id}</Text>
-          <Text component='p'>
-            Detail of AI Library Application
-          </Text>
+          <Text component="h1">{useParams().id}</Text>
+          <Text component="p">Detail of AI Library Application</Text>
         </TextContent>
       </PageSection>
-      <Divider component="div"/>
-      <PageSection
-        className='app-detail nav'
-        variant={PageSectionVariants.light}
-        noPadding={true}>
+      <Divider component="div" />
+      <PageSection className="app-detail nav" variant={PageSectionVariants.light} noPadding={true}>
         <Nav onSelect={onNavSelect}>
           <NavList variant={NavVariants.tertiary}>
-            <NavItem key='development' itemId='development'
-                     isActive={activeSubNav === 'development'}>
+            <NavItem
+              key="development"
+              itemId="development"
+              isActive={activeSubNav === "development"}
+            >
               Development
             </NavItem>
-            <NavItem key='training' itemId='training'
-                     isActive={activeSubNav === 'training'}>
+            <NavItem key="training" itemId="training" isActive={activeSubNav === "training"}>
               Training
             </NavItem>
-            <NavItem key='serving' itemId='serving'
-                     isActive={activeSubNav === 'serving'}>
+            <NavItem key="serving" itemId="serving" isActive={activeSubNav === "serving"}>
               Serving
             </NavItem>
           </NavList>
         </Nav>
       </PageSection>
-      <Divider component="div"/>
+      <Divider component="div" />
       {subSection}
     </>
   );

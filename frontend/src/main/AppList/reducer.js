@@ -1,7 +1,6 @@
 const initialState = {
-  aiLibraryApps: []
-}
-
+  aiLibraryApps: [],
+};
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {

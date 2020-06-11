@@ -1,2 +1,1 @@
-export const sagas = [
-];
+export const sagas = [];

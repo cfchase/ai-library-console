@@ -1,4 +1,4 @@
-import { AppDetail } from './AppDetail';
+import { AppDetail } from "./AppDetail";
 
 export { AppDetail };
 export default AppDetail;
